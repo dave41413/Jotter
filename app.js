@@ -16,7 +16,13 @@ let activeNoteId = null;
 const loadNotes = () => {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored) {
-    notes = JSON.parse(stored);
+    try {
+      notes = JSON.parse(stored);
+    } catch (error) {
+      console.error("Failed to parse stored notes:", error);
+      notes = [];
+      localStorage.removeItem(STORAGE_KEY);
+    }
   }
 };
 
