@@ -44,6 +44,7 @@ const setActiveNote = (id) => {
 const resetForm = () => {
   noteTitle.value = "";
   noteBody.value = "";
+  activeNoteId = null;
 };
 
 const buildSummary = (text) => {
@@ -196,7 +197,7 @@ clearNotes.addEventListener("click", () => {
   saveNotes();
   renderNotes();
   summaryOutput.textContent =
-    "Select a note and click “AI: Summarize current note” to get a quick overview.";
+    'Select a note and click "AI: Summarize current note" to get a quick overview.';
 });
 
 aiGenerate.addEventListener("click", () => {
