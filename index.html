@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jotter – AI Notes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Jotter</p>
+          <h1>AI-Powered Notes</h1>
+          <p class="subhead">
+            Capture ideas fast, generate drafts, and summarize long notes in seconds.
+          </p>
+        </div>
+        <div class="status-chip">
+          <span class="dot"></span>
+          AI ready
+        </div>
+      </header>
+
+      <main class="app-grid">
+        <section class="panel">
+          <h2>Create a note</h2>
+          <form id="note-form">
+            <label>
+              Title
+              <input type="text" id="note-title" placeholder="Meeting recap" required />
+            </label>
+            <label>
+              Content
+              <textarea
+                id="note-body"
+                placeholder="Jot your thoughts, tasks, or meeting details..."
+                required
+              ></textarea>
+            </label>
+            <div class="actions">
+              <button class="primary" type="submit">Save note</button>
+              <button class="ghost" type="button" id="clear-form">Clear</button>
+            </div>
+          </form>
+          <div class="ai-controls">
+            <h3>AI tools</h3>
+            <label>
+              Prompt
+              <input
+                type="text"
+                id="ai-prompt"
+                placeholder="Write a standup update about the sprint"
+              />
+            </label>
+            <div class="actions">
+              <button type="button" id="ai-generate">AI: Write note</button>
+              <button type="button" id="ai-summarize">AI: Summarize current note</button>
+            </div>
+            <p class="hint">
+              AI features run locally with smart templates so you can try the workflow without an
+              API key.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Your notes</h2>
+            <div class="panel-actions">
+              <button id="clear-notes" class="ghost" type="button">Clear all</button>
+            </div>
+          </div>
+          <div id="notes-list" class="notes-list"></div>
+        </section>
+      </main>
+
+      <section class="panel insights">
+        <h2>AI summary</h2>
+        <p id="summary-output" class="summary-output">
+          Select a note and click “AI: Summarize current note” to get a quick overview.
+        </p>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
